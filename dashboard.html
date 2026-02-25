@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediaBoard - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="hidden" id="dashboard-body">
+    <header>
+        <div class="logo">MediaBoard</div>
+        <div class="user-info">
+            <span id="user-email">Loading...</span>
+            <button id="logout-btn" class="logout-btn secondary">Logout</button>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <div class="card">
+            <h2>Add New Content</h2>
+            <p class="subtitle" style="text-align: left; margin-bottom: 1.5rem;">Share a title and description to your board.</p>
+            
+            <div id="content-message" class="message hidden"></div>
+
+            <form id="content-form">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" placeholder="Enter title" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" rows="3" placeholder="Enter description..." required></textarea>
+                </div>
+                <button type="submit">Add to Board</button>
+            </form>
+        </div>
+
+        <div id="items-container" class="content-list">
+            <div class="empty-state">Loading your content...</div>
+        </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
