@@ -118,9 +118,9 @@ if (authForm) {
                 }
 
                 if (user.email === ADMIN_EMAIL) {
-                    window.location.href = 'admin.html';
+                    window.location.href = 'admin';
                 } else {
-                    window.location.href = 'dashboard.html';
+                    window.location.href = 'dashboard';
                 }
 
             } else {
@@ -201,9 +201,9 @@ if (logoutBtn) {
 }
 
 onAuthStateChanged(auth, async (user) => {
-    const isDashboard = window.location.pathname.includes('dashboard.html');
-    const isAdmin = window.location.pathname.includes('admin.html');
-    const isIndex = window.location.pathname.includes('index.html') || window.location.pathname === '/';
+    const isDashboard = window.location.pathname.includes('dashboard');
+    const isAdmin = window.location.pathname.includes('admin');
+    const isIndex = window.location.pathname.includes('index') || window.location.pathname === '/' || window.location.pathname.endsWith('/');
 
     if (user && (DEV_MODE || user.emailVerified)) {
         try {
@@ -218,11 +218,11 @@ onAuthStateChanged(auth, async (user) => {
         }
 
         if (user.email === ADMIN_EMAIL) {
-            if (!isAdmin) window.location.href = 'admin.html';
+            if (!isAdmin) window.location.href = 'admin';
             document.getElementById('admin-body')?.classList.remove('hidden');
             loadAllUsers();
         } else {
-            if (isIndex || isAdmin) window.location.href = 'dashboard.html';
+            if (isIndex || isAdmin) window.location.href = 'dashboard';
             if (isDashboard) {
                 document.getElementById('dashboard-body')?.classList.remove('hidden');
                 document.getElementById('user-email').textContent = user.email;
